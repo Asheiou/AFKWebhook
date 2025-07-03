@@ -16,7 +16,7 @@ class AFKWebhook : JavaPlugin() {
     config.options().copyDefaults(true)
 
     Bukkit.getPluginManager().registerEvents(EventListener(this), this)
-    getCommand("reloadhook")?.setExecutor(this)
+    getCommand("reloadhook")?.setExecutor(ReloadCommand(this))
     logger.info("Enabled successfully!")
   }
 
