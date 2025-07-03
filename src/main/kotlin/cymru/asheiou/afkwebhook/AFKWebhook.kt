@@ -22,7 +22,7 @@ class AFKWebhook : JavaPlugin() {
     Bukkit.getPluginManager().registerEvents(EventListener(this), this)
     getCommand("reloadhook")?.setExecutor(ReloadCommand(this))
 
-    val pluginId = 26352;
+    val pluginId = 26352
     metrics = Metrics(this, pluginId)
 
     logger.info("Enabled successfully!")
