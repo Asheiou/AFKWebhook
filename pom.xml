@@ -53,6 +53,7 @@
         <configuration>
           <artifactSet>
             <includes>
+              <include>kotlin:*</include>
               <include>org.jetbrains.kotlin:*</include>
               <include>org.bstats:*</include>
             </includes>
@@ -60,6 +61,10 @@
           <relocations>
             <relocation>
               <pattern>org.jetbrains</pattern>
+              <shadedPattern>cymru.asheiou.afkwebhook.kotlin</shadedPattern>
+            </relocation>
+            <relocation>
+              <pattern>kotlin</pattern>
               <shadedPattern>cymru.asheiou.afkwebhook.kotlin</shadedPattern>
             </relocation>
             <relocation>
