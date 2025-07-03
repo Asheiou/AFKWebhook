@@ -51,7 +51,7 @@ class EventListener(val plugin: JavaPlugin) : Listener {
     try {
       uri = URI(webhook)
     } catch (_: URISyntaxException) {
-      plugin.logger.warning("Your webhook is not in valid URL format. Please check it and reload the plugin!")
+      plugin.logger.warning("Your webhook is not in valid URL format. Check your config and reload the plugin!")
       notifyAdminsOfError()
       return
     }
