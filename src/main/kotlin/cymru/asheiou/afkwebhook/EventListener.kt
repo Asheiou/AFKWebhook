@@ -19,7 +19,7 @@ class EventListener(val plugin: JavaPlugin) : Listener {
   fun onAfkStatusChange(event: AfkStatusChangeEvent) {
     val player = event.affected.base
     if (!player.hasPermission("afkwebhook.send")) {
-      plugin.logger.info("Player ${player.name} does not have permission to send afk webhook.")
+      plugin.logger.info("Player ${player.name} does not have permission to send an afk webhook.")
       return
     }
     if (player.uniqueId in VanishHandler.vanishedUsers) {
@@ -58,7 +58,7 @@ class EventListener(val plugin: JavaPlugin) : Listener {
     val response = WebhookSender.postWebhook(uri, messageSubstituted)
     val validationCheck = WebhookSender.validateResponse(response)
     if (validationCheck) {
-      plugin.logger.info("AFK webhook posted sucessfully!")
+      plugin.logger.info("AFK webhook posted successfully!")
       return
     }
     plugin.logger.warning("AFK webhook failed. Code:" + response.statusCode() + ". Message:" + response.body())
