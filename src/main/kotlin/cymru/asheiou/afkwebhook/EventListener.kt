@@ -16,7 +16,7 @@ class EventListener(val plugin: JavaPlugin) : Listener {
 
   fun onAfkStatusChange(event: AfkStatusChangeEvent) {
     val player = event.affected.base
-    if (player.hasPermission("afkwebhook.send")) return
+    if (!player.hasPermission("afkwebhook.send")) return
     val webhook = plugin.config.getString("webhook") ?: run {
       plugin.logger.warning("Webhook supplied does not exist!")
       notifyAdminsOfError()
