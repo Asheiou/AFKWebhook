@@ -11,7 +11,7 @@ Abridged implementation of https://github.com/AeoliaXYZ/AshUtils class of same n
  */
 class WebhookSender {
   companion object {
-    fun postWebhook(uri: URI, content: String): HttpResponse<String?> {
+    fun postWebhook(uri: URI, content: String): HttpResponse<String?>? {
       val builder = HttpRequest.newBuilder(uri)
       val json = JsonObject()
       json.addProperty("content", content)
@@ -19,17 +19,19 @@ class WebhookSender {
       builder.POST(HttpRequest.BodyPublishers.ofString(json.toString()))
       builder.headers("content-type", "application/json")
       val request = builder.build()
-      return HttpClient.newHttpClient().sendAsync(request, HttpResponse.BodyHandlers
-        .ofString()).join()
+      return try {
+        HttpClient.newHttpClient().sendAsync(
+          request, HttpResponse.BodyHandlers.ofString()
+        ).join()
+      } catch (e: Exception) {
+        e.printStackTrace()
+        null
+      }
     }
 
     fun validateResponse(response: HttpResponse<String?>): Boolean {
       val validationCheck = response.statusCode() - 200
-      if (validationCheck >= 0 && validationCheck < 100) {
-        return true
-      } else {
-        return false
-      }
+      return (validationCheck >= 0 && validationCheck < 100)
     }
   }
 }

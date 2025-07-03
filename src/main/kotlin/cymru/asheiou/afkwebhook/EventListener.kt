@@ -55,7 +55,11 @@ class EventListener(val plugin: JavaPlugin) : Listener {
       notifyAdminsOfError()
       return
     }
-    val response = WebhookSender.postWebhook(uri, messageSubstituted)
+    val response = WebhookSender.postWebhook(uri, messageSubstituted) ?: run {
+      plugin.logger.warning("The request failed to send. This most often is a result of a malformed webhook URL." +
+              " Check your config and reload the plugin!")
+      return
+    }
     val validationCheck = WebhookSender.validateResponse(response)
     if (validationCheck) {
       plugin.logger.info("AFK webhook posted successfully!")

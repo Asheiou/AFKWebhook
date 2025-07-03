@@ -35,7 +35,11 @@ class ReloadCommand(val plugin: JavaPlugin) : CommandExecutor {
       )
       return true
     }
-    val response = WebhookSender.postWebhook(uri, "Ping!")
+    val response = WebhookSender.postWebhook(uri, "Ping!") ?: run {
+      MessageSender.sendMessage(sender,"The request failed to send! This is most often the result of a " +
+              "malformed webhook URL. Please check your config and try again.")
+      return true
+    }
     val validationCheck = WebhookSender.validateResponse(response)
     if (validationCheck) {
       MessageSender.sendMessage(sender, "Webhook sent successfully!")
