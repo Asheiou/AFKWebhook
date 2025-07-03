@@ -1,5 +1,5 @@
 name: AFKWebhook
-version: '1.0-SNAPSHOT'
+version: ${project.version}
 main: cymru.asheiou.afkwebhook.AFKWebhook
 api-version: '1.18'
 depend: [Essentials]
