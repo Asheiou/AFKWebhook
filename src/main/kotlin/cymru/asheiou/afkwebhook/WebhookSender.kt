@@ -1,4 +1,4 @@
-package xyz.aeolia.afkwebhook
+package cymru.asheiou.afkwebhook
 
 import com.google.gson.JsonObject
 import java.net.URI
@@ -11,7 +11,7 @@ Abridged implementation of https://github.com/AeoliaXYZ/AshUtils class of same n
  */
 class WebhookSender {
   companion object {
-    fun postWebhook(uri: URI, content: String) : HttpResponse<String?> {
+    fun postWebhook(uri: URI, content: String): HttpResponse<String?> {
       val builder = HttpRequest.newBuilder(uri)
       val json = JsonObject()
       json.addProperty("content", content)
@@ -19,10 +19,11 @@ class WebhookSender {
       builder.POST(HttpRequest.BodyPublishers.ofString(json.toString()))
       builder.headers("content-type", "application/json")
       val request = builder.build()
-      return HttpClient.newHttpClient().sendAsync(request, HttpResponse.BodyHandlers.ofString()).join()
+      return HttpClient.newHttpClient().sendAsync(request, HttpResponse.BodyHandlers
+        .ofString()).join()
     }
 
-    fun validateResponse(response: HttpResponse<String?>) : Boolean {
+    fun validateResponse(response: HttpResponse<String?>): Boolean {
       val validationCheck = response.statusCode() - 200
       if (validationCheck >= 0 && validationCheck < 100) {
         return true

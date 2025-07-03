@@ -1,6 +1,6 @@
 package cymru.asheiou.afkwebhook
 
-import java.util.UUID
+import java.util.*
 
 class VanishHandler {
   companion object {

@@ -56,6 +56,12 @@
               <include>org.jetbrains.kotlin:*</include>
             </includes>
           </artifactSet>
+          <relocations>
+            <relocation>
+              <pattern>org.jetbrains</pattern>
+              <shadedPattern>cymru.asheiou.afkwebhook.kotlin</shadedPattern>
+            </relocation>
+          </relocations>
         </configuration>
       </plugin>
       <plugin>
