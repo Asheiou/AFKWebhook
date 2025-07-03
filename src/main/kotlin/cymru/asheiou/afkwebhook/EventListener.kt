@@ -58,6 +58,7 @@ class EventListener(val plugin: JavaPlugin) : Listener {
     val response = WebhookSender.postWebhook(uri, messageSubstituted) ?: run {
       plugin.logger.warning("The request failed to send. This most often is a result of a malformed webhook URL." +
               " Check your config and reload the plugin!")
+      notifyAdminsOfError()
       return
     }
     val validationCheck = WebhookSender.validateResponse(response)
