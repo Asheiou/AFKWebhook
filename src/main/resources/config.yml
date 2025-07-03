@@ -1,0 +1,40 @@
+############################################################################
+#                                                        AFKWebhook Config #
+# by Asheiou                                                               #
+############################################################################
+
+webhook: "WEBHOOK"
+############################################################################
+# This should be a Discord webhook URL (or other webhook that accepts      #
+# application/json requests).                                              #
+#                                                                          #
+# To get a Discord webhook URL, on desktop                                 #
+# click on a channel, click the gear "Edit Channel" icon, then go to       #
+# Integrations and click Create Webhook. Open the new panel that popped up #
+# (it'll be labelled Spidey Bot, Captain Hook, or some other webhook pun)  #
+# and click Copy Webhook. Then, paste it into the webhook field above.     #
+# And that's it! Run /reloadhook when you're done.                         #
+#                                                                          #
+# You'll probably also want to set a profile picture and name for the      #
+# webhook, something like "AFK" or whatever. The Spigot page has a profile #
+# picture you can use!                                                     #
+#                                                                          #
+# If you want to stop certain users' AFK notifications from entering the   #
+# chat, you need to deny the permission "afkwebhook.send" to them, as      #
+# that's what the plugin checks for (and it defaults to true).             #
+############################################################################
+
+
+messages:
+  afk: "**{PLAYER}** is now AFK."
+  not-afk: "**{PLAYER}** is no longer AFK."
+############################################################################
+# This is here for localisation purposes. If you want to change the        #
+# messages into the language for your server, or if you just don't like    #
+# the default phrasing, you can just redefine them here.                   #
+# All Discord markdown should work, and you can use \n for newlines. The   #
+# plugin currently does not have the ability to send embeds.               #
+#                                                                          #
+# The only placeholder is {PLAYER}, for the player's username. You can use #
+# it multiple times if you want, though!                                   #
+############################################################################

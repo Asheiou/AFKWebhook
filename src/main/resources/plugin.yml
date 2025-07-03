@@ -1,0 +1,19 @@
+name: AFKWebhook
+version: '1.0-SNAPSHOT'
+main: cymru.asheiou.afkwebhook.AFKWebhook
+api-version: '1.18'
+
+commands:
+  reloadhook:
+    usage: /<command>
+    description: Reloads the webhook URL from the config file!
+    permission: afkwebhook.reload
+    permission-message: You don't have afkwebhook.reload.
+
+permissions:
+  afkwebhook.send:
+    default: true
+    description: Allows user's AFK status changes to be sent to the webhook
+  afkwebhook.reload:
+    default: op
+    description: Allows /reloadhook
