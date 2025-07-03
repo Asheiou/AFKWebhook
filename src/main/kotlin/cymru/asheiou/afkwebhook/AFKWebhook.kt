@@ -1,5 +1,6 @@
 package cymru.asheiou.afkwebhook
 
+import org.bstats.bukkit.Metrics
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
