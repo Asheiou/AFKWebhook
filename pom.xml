@@ -54,12 +54,17 @@
           <artifactSet>
             <includes>
               <include>org.jetbrains.kotlin:*</include>
+              <include>org.bstats:*</include>
             </includes>
           </artifactSet>
           <relocations>
             <relocation>
               <pattern>org.jetbrains</pattern>
               <shadedPattern>cymru.asheiou.afkwebhook.kotlin</shadedPattern>
+            </relocation>
+            <relocation>
+              <pattern>org.bstats</pattern>
+              <shadedPattern>cymru.asheiou.afkwebhook.bstats</shadedPattern>
             </relocation>
           </relocations>
         </configuration>
@@ -116,6 +121,11 @@
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-stdlib-jdk8</artifactId>
       <version>${kotlin.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.bstats</groupId>
+      <artifactId>bstats-bukkit</artifactId>
+      <version>3.0.2</version>
     </dependency>
   </dependencies>
 </project>
